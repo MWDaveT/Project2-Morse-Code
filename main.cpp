@@ -13,6 +13,7 @@ int main() {
 		MorseCode >> str1;
 		MSTree.add_char_to_tree(str[0], str1);
 	}
+	MorseCode.close();
 	MSTree.print_tree();
 
 	MSTree.decode("--. --- .--. .... . .-. ...");

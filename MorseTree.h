@@ -5,6 +5,9 @@
 
 #include<iostream>
 #include<fstream>
+#include<map>
+
+
 class MorseTree
 {
 	struct MCNode
@@ -33,15 +36,24 @@ public:
 
 	char get_char_from_code(std::string str);
 
+	std::string encode_to_morsecode(std::string str);
+
+	std::map<char, std::string> build_code_map(std::string);
+
 private:
 
 	MCNode* tree_head;
+
+	std::map<char, std::string> morse_encode_map;
 
 	void print_tree(MCNode* Temp);
 
 	char get_char_from_code(MCNode* Temp, std::string str);
 
 	void add_char_to_tree(MCNode*& Temp, char ch, std::string str);
+
+	
+
 };
 
 

@@ -3,6 +3,7 @@
 #include<fstream>
 #include<sstream>
 #include<string>
+#include<map>
 
 MorseTree::MorseTree()
 {	
@@ -82,4 +83,29 @@ void MorseTree::decode(std::string str)
 	}
 	std::cout << decode_message << std::endl;
 			
+}
+
+std::map<char, std::string> MorseTree::build_code_map(std::string filename)
+{
+	char letter;
+	std::string code;
+	std::map<char, std::string> codeMap;
+
+
+	std::fstream MorseCode;
+	MorseCode.open(filename);
+	while (MorseCode >> letter >> code)
+	{
+		codeMap[letter] = code;
+	}
+
+	return codeMap;
+}
+
+std::string encode_to_morsecode(std::string str)
+{
+	std::map<char, std::string> codeMap;
+	codeMap = MorseTree::build_code_map("morse.txt");
+
+	
 }
