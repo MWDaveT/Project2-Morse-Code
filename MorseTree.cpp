@@ -40,6 +40,8 @@ char MorseTree::get_char_from_code(std::string str)
 }
 
 
+
+
 char MorseTree::get_char_from_code(MorseTree::MCNode* temp, std::string str)
 {
 	if (temp->data_char != 0 && str.size() == 0)
@@ -72,7 +74,7 @@ void MorseTree::print_tree(MorseTree::MCNode* temp)
 	}
 }
 
-void MorseTree::decode(std::string str)
+std::string  MorseTree::decode(std::string str)
 {
 	std::string code_alpha;
 	std::string decode_message = "";
@@ -81,7 +83,8 @@ void MorseTree::decode(std::string str)
 	{
 		decode_message += MorseTree::get_char_from_code(code_alpha);
 	}
-	std::cout << decode_message << std::endl;
+	
+	return decode_message;
 			
 }
 
@@ -98,14 +101,18 @@ std::map<char, std::string> MorseTree::build_code_map(std::string filename)
 	{
 		codeMap[letter] = code;
 	}
-
 	return codeMap;
 }
 
-std::string encode_to_morsecode(std::string str)
+std::string MorseTree::encode_to_morsecode(std::string str, std::map<char, std::string> codeMap)
 {
-	std::map<char, std::string> codeMap;
-	codeMap = MorseTree::build_code_map("morse.txt");
+	std::string str2;
+	for (int i = 0; i < str.size(); ++i)
+	{
+		str2 += codeMap[str[i]];
+		str2 += " ";
+	}
+	return str2;
 
 	
 }
