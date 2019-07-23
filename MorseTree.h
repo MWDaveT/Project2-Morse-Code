@@ -7,12 +7,12 @@
 #include<fstream>
 class MorseTree
 {
-	struct Node
+	struct MCNode
 	{
 		char data_char;
-		Node* left_ptr;
-		Node* right_ptr;
-		Node() {
+		MCNode* left_ptr;
+		MCNode* right_ptr;
+		MCNode() {
 			data_char = 0;
 			left_ptr = NULL;
 			right_ptr = NULL;
@@ -35,13 +35,13 @@ public:
 
 private:
 
-	Node* tree_head;
+	MCNode* tree_head;
 
-	void print_tree(Node* Temp);
+	void print_tree(MCNode* Temp);
 
-	char get_char_from_code(Node* Temp, std::string str);
+	char get_char_from_code(MCNode* Temp, std::string str);
 
-	void add_char_to_tree(Node*& Temp, char ch, std::string str);
+	void add_char_to_tree(MCNode*& Temp, char ch, std::string str);
 };
 
 
