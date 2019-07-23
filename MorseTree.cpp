@@ -61,11 +61,14 @@ void MorseTree::print_tree()
 	MorseTree::print_tree(tree_head);
 }
 
-void MorseTree::print_tree(Node* temp)
+void MorseTree::print_tree(MorseTree::Node* temp)
 {
-	//MorseTree::print_tree(Node* Temp);
-	std::cout << "Testing" << std::endl;
-
+	if (temp != NULL)
+	{
+		MorseTree::print_tree(temp->left_ptr);
+		std::cout << "The Char is: " << temp->data_char << std::endl;
+		MorseTree::print_tree(temp->right_ptr);
+	}
 }
 
 void MorseTree::decode(std::string str)
